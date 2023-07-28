@@ -1,13 +1,16 @@
-import { Post } from './components/Post'
+import { Post, PostType } from './components/Post'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import styles from './App.module.css'
 
 import './global.css'
-//author : {author_url "0; role: ""}
-// publisheAt: Date
-// content: String;
-const posts = [
+
+interface Post{
+
+}
+
+
+const posts : PostType[] = [
   {
     id: 1,
     author: {
@@ -51,13 +54,12 @@ function App() {
           
           <main>
 
-          {posts.map( (post, index) => {
-            return <Post 
-              key={post.id}
-              author = {post.author}
-              content = {post.content}
-              publishedAt = {post.publishedAt}
-            />
+          {posts.map( (post) => {
+            return (
+              <Post 
+                key={post.id}
+                post={post}
+              />)
           }
           )}
           </main>
